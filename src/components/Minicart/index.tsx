@@ -1,22 +1,51 @@
 import React from 'react'
 import Button from '../Button'
+import MinicartProductItem from '../MinicartProductItem'
 import ProductSummary from '../ProductSummary'
+import { MinicartContainer, MinicartContent, MinicartFooter, MinicartHeader, MinicartListItem, MinicartListItems, MinicartTotalValue } from './styles'
 
 const Minicart = () => {
   return (
-    <section>
-      <header>
-        <h3>Carrinho</h3>
-      </header>
-      <div>
-        <ProductSummary />
-        <Button label="X" />
-      </div>
-      <footer>
-        <h4>Total: R$ 99</h4>
-        <Button label="Finalizar Pedido" />
-      </footer>
-    </section>
+    <MinicartContainer>
+      <MinicartContent>
+
+        <MinicartHeader>
+          <h3>Carrinho</h3>
+        </MinicartHeader>
+
+        <MinicartListItems>
+          <MinicartListItem>
+            <MinicartProductItem />
+            <Button label="X" />
+          </MinicartListItem>
+          <MinicartListItem>
+            <MinicartProductItem />
+            <Button label="X" />
+          </MinicartListItem>
+          <MinicartListItem>
+            <MinicartProductItem />
+            <Button label="X" />
+          </MinicartListItem>
+          <MinicartListItem>
+            <MinicartProductItem />
+            <Button label="X" />
+          </MinicartListItem>
+          <MinicartListItem>
+            <MinicartProductItem />
+            <Button label="X" />
+          </MinicartListItem>
+        </MinicartListItems>
+
+        <MinicartFooter>
+          <MinicartTotalValue>
+            <span>Total</span>
+            <span>R$ 99</span>
+          </MinicartTotalValue>
+          <Button label="Finalizar Pedido" />
+        </MinicartFooter>
+
+      </MinicartContent>
+    </MinicartContainer>
   )
 }
 
