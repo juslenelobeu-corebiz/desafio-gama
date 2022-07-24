@@ -1,9 +1,18 @@
 import React from 'react'
 import ProductSummary from '../ProductSummary'
+import { ProductListContainer } from './styles'
 
 const ProductList = () => {
   return (
-    <ProductSummary />
+    <ProductListContainer>
+      <ProductSummary />
+      <ProductSummary />
+      <ProductSummary />
+      <ProductSummary />
+      <ProductSummary />
+      <ProductSummary />
+      <ProductSummary />
+    </ProductListContainer>
   )
 }
 
