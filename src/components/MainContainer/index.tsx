@@ -1,14 +1,15 @@
 import React from 'react'
 import Minicart from '../Minicart'
 import ProductList from '../ProductList'
+import { Main } from './styles'
 
-const Main = () => {
+const MainContainer = () => {
   return (
-    <div>
+    <Main>
       <ProductList />
       <Minicart />
-    </div>
+    </Main>
   )
 }
 
-export default Main
+export default MainContainer
