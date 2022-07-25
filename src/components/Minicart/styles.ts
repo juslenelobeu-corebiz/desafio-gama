@@ -11,6 +11,7 @@ export const MinicartContainer = styled.section`
   background-color: #fff;
   padding: 1rem;
   border: thin solid;
+  display: none;
 `
 
 export const MinicartContent = styled.div`
