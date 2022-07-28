@@ -2,11 +2,12 @@ import React from 'react'
 
 interface ButtonProps {
   label: string
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void
 }
 
-const Button = ({label}: ButtonProps) => {
+const Button = ({label, onClick}: ButtonProps) => {
   return (
-    <button>{label}</button>
+    <button onClick={onClick}>{label}</button>
   )
 }
 
