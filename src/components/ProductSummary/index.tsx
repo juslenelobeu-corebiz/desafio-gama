@@ -1,13 +1,23 @@
 import React from 'react'
 import AddToCart from '../AddToCart'
 
-const ProductSummary = () => {
+interface ProductSummaryProps {
+  image: string
+  title: string
+  price: number
+  id: number
+}
+
+const ProductSummary = ({ image, title, price, id }: ProductSummaryProps) => {
   return (
     <div>
-      <img src="https://via.placeholder.com/150" alt="product" />
-      <h3>Product Title</h3>
-      <h4>Price R$ 99</h4>
-      <AddToCart label="Add to cart" />
+      <img src={image} alt="product" />
+      <h3>{title}</h3>
+      <div>
+        <span>Preço</span>
+        <span>R$ {price}</span>
+      </div>
+      <AddToCart label="Add to cart" value={id}/>
     </div>
   )
 }
