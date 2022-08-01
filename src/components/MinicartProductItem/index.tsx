@@ -1,13 +1,14 @@
 import React from 'react'
+import { PokemonItemTypes } from '../../context/context'
 import { MinicartProductItemContainer } from './styles'
 
-const MinicartProductItem = () => {
+const MinicartProductItem = ({id, image, name, price}: PokemonItemTypes) => {
   return (
     <MinicartProductItemContainer>
-      <img src="https://via.placeholder.com/50" alt="product" />
+      <img src={image} alt={name} />
       <div>
-        <h3>Product Title</h3>
-        <span>Price R$ 99</span>
+        <h3>{name}</h3>
+        <span>R$ {price}</span>
       </div>
     </MinicartProductItemContainer>
   )

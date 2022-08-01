@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MinicartContainer = styled.section`
-  width: 200px;
+  width: 300px;
   height: 85vh;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@ export const MinicartContainer = styled.section`
   background-color: #fff;
   padding: 1rem;
   border: thin solid;
-  display: none;
+  /* display: none; */
 `
 
 export const MinicartContent = styled.div`

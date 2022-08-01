@@ -1,10 +1,8 @@
-import axios from 'axios';
-
-export const requestAPI = async (url: string, method: string, data?: any) => {
-  const response = await axios({
-    url,
-    method,
-    data,
-  });
-  return response.data;
+export const getPokemonList = async (url: string) => {
+  try {
+    const response = await fetch(url);
+    return await response.json();
+  } catch (error) {
+    console.log('Error',error);
+  }
 }

@@ -1,43 +1,72 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
+import { getPokemonList } from '../utils/requestAPI'
 
 const DEFAULT_VALUE = {
   state: {
-    pokemonList: [
-      {
-        id: 1,
-        name: 'Bulbasaur',
-        image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
-        price: 100,
-        stock: 10,
-      }
-    ],
+    dataPokemon: {
+      count: 0,
+      next: "",
+      previous: null,
+      results: []
+    },
+    cart: [],
+    search: {
+      name: '',
+      url: '',
+    },
+    error: '',	
   },
-  setState: () => {},
+  setState: () => { },
 }
 
-type PokemonListTypes = {
+type DefaultValuesProps = {
   state: {
-    pokemonList: Array<PokemonItemTypes>,
+    dataPokemon: dataPokemonTypes
+    cart: Array<PokemonItemTypes>,
+    search: retultPokemonTypes,
+    error: string,
   },
   setState: (state: any) => void,
 }
 
-type PokemonItemTypes = {
+export type PokemonItemTypes = {
   id: number,
   name: string,
   image: string,
   price: number,
-  stock: number,
+  stock?: number,
+}
+
+type dataPokemonTypes = {
+  count: number,
+  next: string | null,
+  previous: string | null,
+  results: Array<retultPokemonTypes>
+}
+
+type retultPokemonTypes = {
+  name: string,
+  url: string,
 }
 
 export type ChildrenTypes = {
   children: React.ReactNode,
 }
 
-const PokemonListContext = createContext<PokemonListTypes>(DEFAULT_VALUE)
+const PokemonListContext = createContext<DefaultValuesProps>(DEFAULT_VALUE)
 
 const PokemonListProvider = ({ children }: ChildrenTypes) => {
-  const [ state, setState ] = useState(DEFAULT_VALUE.state)
+  const [state, setState] = useState(DEFAULT_VALUE.state)
+
+  useEffect(() => {
+    getPokemonList(`https://pokeapi.co/api/v2/pokemon?limit=11`)
+      .then(res => {
+        setState({
+          ...state,
+          dataPokemon: res,
+        })
+      })
+    }, [])
 
   return (
     <PokemonListContext.Provider value={{ state, setState }}>

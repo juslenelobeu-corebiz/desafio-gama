@@ -1,18 +1,26 @@
 import React from 'react'
+import { PokemonItemTypes, usePokemonList } from '../../context/context'
 import Button from '../Button'
 
 interface ButtonProps {
   label: string
-  value: number
+  pokemon: PokemonItemTypes
 }
 
-const AddToCart = ({label, value}: ButtonProps) => {
-  const handleClick = () => {
-    console.log('CLICK', value);
-    
+const AddToCart = ({label, pokemon}: ButtonProps) => {
+  const { 
+    state,
+    setState,
+  } = usePokemonList();
+
+  const addToCart = () => {
+    setState({
+      ...state,
+      cart: [...state.cart, pokemon],
+    })
   }
   return (
-    <button onClick={handleClick}>{label}</button>
+    <Button label={label} onClick={addToCart} />
   )
 }
 
