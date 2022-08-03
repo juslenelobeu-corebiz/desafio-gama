@@ -28,12 +28,14 @@ export const MinicartHeader = styled.header`
   h3 {
     font-size: 1.5rem;
     color: #fff;
+    font-family: 'Barlow Condensed', sans-serif;
 
     span {
       font-size: 1rem;
       font-weight: 500;
       letter-spacing: .3rem;
       margin-left: .5rem;
+      font-family: 'Barlow Condensed', sans-serif;
     }
   }
 `
@@ -68,16 +70,17 @@ export const MinicartFooter = styled.footer`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  span {
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: #fff;
-  }
-`
+  `
 
 export const MinicartTotalValue = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.5em;
+
+  span {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #fff;
+    font-family: 'Barlow Condensed', sans-serif;
+  }
 `

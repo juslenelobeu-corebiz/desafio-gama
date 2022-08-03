@@ -9,14 +9,17 @@ export const OrderFormContainer = styled.div`
 
   h1 {
     font-size: 3rem;
+    font-family: 'Barlow Condensed', sans-serif;
   }
 
   h2 {
     font-size: 2rem;
+    font-family: 'Barlow Condensed', sans-serif;
   }
 
   h3 {
     font-size: 1.5rem;
+    font-family: 'Barlow Condensed', sans-serif;
   }
 
   table {
@@ -33,6 +36,7 @@ export const OrderFormContainer = styled.div`
         text-align: center;
         font-size: 1.2rem;
         padding: .5rem;
+        font-family: 'Barlow Condensed', sans-serif;
       }
     }
     tr {
@@ -48,11 +52,13 @@ export const OrderFormContainer = styled.div`
         padding: 0.5rem;
         font-size: 1rem;
         border: thin solid #f5f5f5;
+        font-family: 'Barlow Condensed', sans-serif;
       }
     }
     tfoot {
       td {
         font-weight: bold;
+        font-family: 'Barlow Condensed', sans-serif;
       }
     }
   }

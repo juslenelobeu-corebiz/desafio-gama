@@ -54,5 +54,10 @@ export const InfoContainer = styled.div`
   h3 {
     font-size: 1.5rem;
     text-transform: capitalize;
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+
+  p {
+    font-family: 'Barlow Condensed', sans-serif;
   }
 `

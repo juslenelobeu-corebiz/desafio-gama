@@ -10,6 +10,7 @@ export const FooterContainer = styled.footer`
   a {
     color: rebeccapurple;
     text-decoration: none;
+    font-family: 'Barlow Condensed', sans-serif;
 
     &:hover {
       opacity: .8;

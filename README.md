@@ -2,6 +2,8 @@
 ## Loja de pokemon
 Projeto criado simulando uma loja virtual de Pokemon
 
+Preview: [Link](https://desafio-gama.vercel.app/)
+
 ### Principais Componentes
 - [ x ] Componente de pesquisa de pokemon
 - [ x ] Componente de listagem de pokemon
