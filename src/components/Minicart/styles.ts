@@ -2,16 +2,13 @@ import styled from "styled-components";
 
 export const MinicartContainer = styled.section`
   width: 300px;
-  height: 85vh;
+  height: 500px;
   display: flex;
   flex-direction: column;
-  position: fixed;
-  top: 5vh;
-  right: 0;
-  background-color: #fff;
+  background-color: #1040a0;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   padding: 1rem;
-  border: thin solid;
-  /* display: none; */
 `
 
 export const MinicartContent = styled.div`
@@ -23,7 +20,18 @@ export const MinicartContent = styled.div`
 
 export const MinicartHeader = styled.header`
   height: 7%;
-  border: thin solid;
+
+  h3 {
+    font-size: 1.5rem;
+    color: #fff;
+
+    span {
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: .3rem;
+      margin-left: .5rem;
+    }
+  }
 `
 
 export const MinicartListItems = styled.div`
@@ -31,15 +39,22 @@ export const MinicartListItems = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  border: thin solid;
   overflow-y: scroll;
+  background-color: #f1f1f1;
 `
 
 export const MinicartListItem = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: .5rem;
-  border: thin solid;
+
+  button {
+    background-color: #E21A22;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+  }
 `
 
 export const MinicartFooter = styled.footer`
@@ -48,7 +63,12 @@ export const MinicartFooter = styled.footer`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: thin solid;
+
+  span {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #fff;
+  }
 `
 
 export const MinicartTotalValue = styled.div`

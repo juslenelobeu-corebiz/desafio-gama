@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { usePokemonList } from '../../context/context';
 import Button from '../Button'
-import { Header, Input, InputGroup } from './styles';
+import { Input, InputGroup, SearchContainer } from './styles';
 
 const SearchBar = () => {
   const { 
@@ -58,13 +58,19 @@ const SearchBar = () => {
     }
   }
   return (
-    <Header>
+    <SearchContainer>
       <InputGroup>
-        <Input type="search" placeholder="Search" onChange={(e) => setSearch(e.target.value)} />
+        <Input type="search" placeholder="Search" onChange={(e) => setSearch(e.target.value)} onClick={() => setState({
+        ...state,
+        search: {
+          name: '',
+          url: '',
+        },
+      })} />
         <Button label="Search" onClick={searchPokemon} />
       </InputGroup>
       <span>{state.error}</span>
-    </Header>
+    </SearchContainer>
   )
 }
 

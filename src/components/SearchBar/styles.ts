@@ -1,21 +1,39 @@
 import styled from 'styled-components';
 
-export const Header = styled.header`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-color: rebeccapurple;
-  padding: 20px 0;
-  box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2);
-  position: relative;
-  z-index: 1;
-`
-
-export const InputGroup = styled.div`
+export const SearchContainer = styled.div`
   width: 100%;
   max-width: 600px;
   display: flex;
+  flex-direction: column;
+
+  span {
+    display: block;
+    margin-top: .5rem;
+  }
+
+  @media (max-width: 768px) {
+    width: auto;
+    max-width: 280px;
+  }
+`
+
+export const InputGroup = styled.div`
+  display: flex;
+
+  button {
+    width: 20%;
+  }
+
+  @media (max-width: 768px) {
+    input {
+      width: 60%;
+    }
+  }
+  @media (max-width: 576px) {
+    button {
+      width: 40%;
+    }
+  }
 `
 
 export const Input = styled.input`
@@ -23,7 +41,6 @@ export const Input = styled.input`
   padding: 10px;
   border: none;
   border-radius: 5px 0 0 5px;
-  background-color: #212121;
   color: #999;
   outline: none;
 `

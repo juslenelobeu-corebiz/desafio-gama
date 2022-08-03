@@ -9,22 +9,36 @@ const DEFAULT_VALUE = {
       previous: null,
       results: []
     },
+    pokemonList: [
+      {
+        id: 0,
+        name: '',
+        image: '',
+        price: 0,
+        stock: 0,
+      }
+    ],
     cart: [],
     search: {
       name: '',
       url: '',
     },
     error: '',	
+    openMinicart: false,
+    openOrderForm: false,
   },
   setState: () => { },
 }
 
 type DefaultValuesProps = {
   state: {
-    dataPokemon: dataPokemonTypes
+    dataPokemon: dataPokemonTypes,
+    pokemonList: Array<PokemonItemTypes>,
     cart: Array<PokemonItemTypes>,
     search: retultPokemonTypes,
     error: string,
+    openMinicart: boolean,
+    openOrderForm: boolean,
   },
   setState: (state: any) => void,
 }
@@ -59,14 +73,32 @@ const PokemonListProvider = ({ children }: ChildrenTypes) => {
   const [state, setState] = useState(DEFAULT_VALUE.state)
 
   useEffect(() => {
-    getPokemonList(`https://pokeapi.co/api/v2/pokemon?limit=11`)
+    getPokemonList(`https://pokeapi.co/api/v2/pokemon?limit=10`)
       .then(res => {
         setState({
           ...state,
           dataPokemon: res,
         })
       })
-    }, [])
+    state.dataPokemon.results.map((item: any, index: number) => {
+      getPokemonList(item.url)
+        .then((pokemon:any) => {
+          const data = {
+            id: pokemon.id,
+            name: pokemon.name,
+            image: pokemon.sprites.front_default,
+            price: pokemon.base_experience,
+            stock: 10,
+          }
+          // console.log('DATA',data);
+          
+          setState({
+            ...state,
+            pokemonList: [...state.pokemonList, data],
+          })
+        })
+    })
+  }, [])
 
   return (
     <PokemonListContext.Provider value={{ state, setState }}>

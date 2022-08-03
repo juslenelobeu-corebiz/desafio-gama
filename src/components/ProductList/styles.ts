@@ -4,6 +4,9 @@ export const ProductListContainer = styled.section`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin: 2rem 0;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+  }
 `

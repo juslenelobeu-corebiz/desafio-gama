@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react'
+import { usePokemonList } from '../../context/context'
 import { getPokemonList } from '../../utils/requestAPI'
 import AddToCart from '../AddToCart'
+import { ImageContainer, InfoContainer, ProductContainer } from './styles'
 
 interface ProductSummaryProps {
   url: string
 }
 
 const ProductSummary = ({ url }: ProductSummaryProps) => {
+  const { 
+    state,
+  } = usePokemonList();
 
   const [data, setData] = useState({
     id: 0,
@@ -18,31 +23,35 @@ const ProductSummary = ({ url }: ProductSummaryProps) => {
 
   useEffect(() => {
     url !== '' && getPokemonList(url).then((res) => {
+      console.log(res);
+      
       const data = {
         id: res.id,
         name: res.name,
-        image: res.sprites.front_default,
+        image: res.sprites.other.home.front_default,
         price: res.base_experience,
         stock: 10,
       }
       setData(data);
     })
   }, [])   
+  
+  console.log('state',state);
 
   if(data.id === 0) {
     return null;
   } else {
     return (
-      <div>
-        <div>
+      <ProductContainer>
+        <ImageContainer>
           <img src={data.image} alt={data.name} />
-        </div>
-        <div>
+        </ImageContainer>
+        <InfoContainer>
           <h3>{data.name}</h3>
-          <p>{data.price}</p>
+          <p>Preço R$ {data.price}</p>
           <AddToCart label='Adicionar ao Carrinho' pokemon={data} />
-        </div>
-      </div>
+        </InfoContainer>
+      </ProductContainer>
     )
   }
 }

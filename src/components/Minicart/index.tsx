@@ -18,19 +18,24 @@ const Minicart = () => {
     setState({
       ...state,
       cart: newCart,
+      openMinicart: true,
     })
+  }
+
+  const sendOrderForm = () => {
+    state.cart.length > 0 ? setState({ ...state, openOrderForm: true }) : alert('Não há produtos no carrinho')
   }
 
   useEffect(() => {
     setTotal(state.cart.reduce((acc: number, curr: any) => acc + curr.price, 0))
   }, [state.cart])
 
-  return (
+  return state.openMinicart ? (
     <MinicartContainer>
       <MinicartContent>
 
         <MinicartHeader>
-          <h3>Carrinho</h3>
+          <h3>Carrinho <span>({state.cart.length})</span></h3>
         </MinicartHeader>
 
         <MinicartListItems>
@@ -47,12 +52,12 @@ const Minicart = () => {
             <span>Total</span>
             <span>R$ {total}</span>
           </MinicartTotalValue>
-          <Button label="Finalizar Pedido" />
+          <Button onClick={sendOrderForm} label="Finalizar Pedido" />
         </MinicartFooter>
 
       </MinicartContent>
     </MinicartContainer>
-  )
+  ) : null
 }
 
 export default Minicart
