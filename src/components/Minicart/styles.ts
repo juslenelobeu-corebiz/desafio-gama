@@ -9,6 +9,10 @@ export const MinicartContainer = styled.section`
   border-radius: 5px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   padding: 1rem;
+
+  @media (max-width: 768px) {
+    position: absolute;
+  }
 `
 
 export const MinicartContent = styled.div`
@@ -41,6 +45,7 @@ export const MinicartListItems = styled.div`
   gap: 1rem;
   overflow-y: scroll;
   background-color: #f1f1f1;
+  padding: .5rem;	
 `
 
 export const MinicartListItem = styled.div`
@@ -74,4 +79,5 @@ export const MinicartFooter = styled.footer`
 export const MinicartTotalValue = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 0.5em;
 `

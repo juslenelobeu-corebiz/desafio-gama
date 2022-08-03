@@ -23,8 +23,6 @@ const ProductSummary = ({ url }: ProductSummaryProps) => {
 
   useEffect(() => {
     url !== '' && getPokemonList(url).then((res) => {
-      console.log(res);
-      
       const data = {
         id: res.id,
         name: res.name,
@@ -35,8 +33,6 @@ const ProductSummary = ({ url }: ProductSummaryProps) => {
       setData(data);
     })
   }, [])   
-  
-  console.log('state',state);
 
   if(data.id === 0) {
     return null;

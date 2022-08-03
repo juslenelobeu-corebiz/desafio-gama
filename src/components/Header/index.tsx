@@ -9,7 +9,6 @@ const Header = () => {
   const { state, setState } = usePokemonList()
 
   const handleClick = () => {
-    console.log('clicked')
     setState({
       ...state,
       openMinicart: !state.openMinicart,

@@ -12,7 +12,6 @@ const SearchBar = () => {
   const [ search, setSearch ] = useState('')
   
   const searchPokemon = () => {
-    console.log(search);
     if(search === '') {
       setState({
         ...state,
@@ -30,7 +29,6 @@ const SearchBar = () => {
       }, 3000);
     } else {
       const result = state.dataPokemon.results.filter((item: any) => item.name.toLowerCase().includes(search.toLowerCase()))
-      console.log('RESULT',result);
       
       if(result.length === 0) {
         setState({
@@ -44,8 +42,6 @@ const SearchBar = () => {
           })
         }, 3000);
       } else if(result.length !== 0 || result[0].name.toLowerCase().includes(search.toLowerCase()) !== false) {
-        console.log('RESULT',result);
-        console.log('SEARCH',search);
         
         setState({
           ...state,
@@ -67,7 +63,7 @@ const SearchBar = () => {
           url: '',
         },
       })} />
-        <Button label="Search" onClick={searchPokemon} />
+        <Button label="Pesquisar" onClick={searchPokemon} />
       </InputGroup>
       <span>{state.error}</span>
     </SearchContainer>

@@ -11,7 +11,6 @@ const SearchResult = () => {
 
   useEffect(() => {
     getPokemonList(state.search.url).then((res) => {
-      console.log('SearchResult', res);
     })
   }, [])
 

@@ -73,14 +73,14 @@ const PokemonListProvider = ({ children }: ChildrenTypes) => {
   const [state, setState] = useState(DEFAULT_VALUE.state)
 
   useEffect(() => {
-    getPokemonList(`https://pokeapi.co/api/v2/pokemon?limit=10`)
+    getPokemonList(`https://pokeapi.co/api/v2/pokemon?limit=30`)
       .then(res => {
         setState({
           ...state,
           dataPokemon: res,
         })
       })
-    state.dataPokemon.results.map((item: any, index: number) => {
+    state.dataPokemon.results.map((item: any) => {
       getPokemonList(item.url)
         .then((pokemon:any) => {
           const data = {
@@ -90,7 +90,6 @@ const PokemonListProvider = ({ children }: ChildrenTypes) => {
             price: pokemon.base_experience,
             stock: 10,
           }
-          // console.log('DATA',data);
           
           setState({
             ...state,
